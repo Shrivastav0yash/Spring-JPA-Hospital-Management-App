@@ -1,4 +1,4 @@
-# 🏥 Spring JPA Hospital Management App
+<img width="1536" height="1024" alt="ER Diagram" src="https://github.com/user-attachments/assets/2f14150a-9f0d-4f5a-91ca-2dff888d127d" /># 🏥 Spring JPA Hospital Management App
 
 A **Spring Boot REST API** for managing hospital operations, including patients, doctors, and appointments.
 This project is built using **Spring Boot** and **Spring Data JPA** to demonstrate real-world backend development and database relationships.
@@ -41,6 +41,9 @@ src/main/java/com/springjpa/hospital_management_app
 ---
 
 ## 🗃️ Database Schema
+
+### 📊 ER Diagram
+<img width="1536" height="1024" alt="ER Diagram" src="https://github.com/user-attachments/assets/0e239266-c10c-4474-a680-1d06084a61f4" />
 
 ### Entities:
 
