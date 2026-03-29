@@ -3,13 +3,20 @@ package com.springjpa.hospital_management_app.entity;
 import com.springjpa.hospital_management_app.entity.type.BloodGroupType;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @Table (
         name = "patient",
         uniqueConstraints = {
@@ -45,7 +52,12 @@ public class Patient {
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "patient_insurance_id") // owning side of JPA
     private Insurance insurance;
+
+    @OneToMany(mappedBy = "patient")
+    @ToString.Exclude
+    private List<Appointment> appointments  = new ArrayList<>();
+
 }
