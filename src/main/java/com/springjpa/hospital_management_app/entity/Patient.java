@@ -44,5 +44,8 @@ public class Patient {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
-    
+
+    @OneToOne
+    @JoinColumn(name = "patient_insurance_id") // owning side of JPA
+    private Insurance insurance;
 }
