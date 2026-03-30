@@ -52,12 +52,11 @@ public class Patient {
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToOne(cascade = {CascadeType.ALL}, orphanRemoval = true)
     @JoinColumn(name = "patient_insurance_id") // owning side of JPA
     private Insurance insurance;
 
-    @OneToMany(mappedBy = "patient")
-    @ToString.Exclude
+    @OneToMany(mappedBy = "patient", cascade = {CascadeType.REMOVE}, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Appointment> appointments  = new ArrayList<>();
 
 }
