@@ -26,6 +26,9 @@ public class InsuranceServiceTest {
         Patient patient = insuranceService.assignInsuranceToPatient(insurance, 1L);
         System.out.println(patient);
 
-
+        Patient newPatient = insuranceService.disaccociateInsuranceFromPatient(patient.getId());
+        System.out.println(newPatient);
     }
+
+    //create 2 appointment and assign to 1 patient and delete that patient
 }
