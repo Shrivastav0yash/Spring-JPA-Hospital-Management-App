@@ -1,6 +1,7 @@
 package com.springjpa.hospital_management_app.controller;
 
 
+import com.springjpa.hospital_management_app.dto.CreateAppointmentDTO;
 import com.springjpa.hospital_management_app.dto.PatientAppointmentResponseDTO;
 import com.springjpa.hospital_management_app.services.AppointmentService;
 import com.springjpa.hospital_management_app.services.PatientService;
@@ -17,9 +18,9 @@ public class PatientController {
     private final PatientService patientService;
     private final AppointmentService appointmentService;
 
-    @PutMapping("/create-Appointment")
-    public ResponseEntity<?> createNewAppointment(){
-
+    @PostMapping("/create-Appointment")
+    public ResponseEntity<?> createNewAppointment(@RequestBody CreateAppointmentDTO requestAppointmentDTO){
+        appointmentService.createNewAppointment(requestAppointmentDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
