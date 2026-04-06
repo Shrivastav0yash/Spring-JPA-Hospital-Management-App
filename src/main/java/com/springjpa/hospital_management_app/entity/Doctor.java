@@ -21,6 +21,10 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    @MapsId
+    private User user;
+
     @Column(nullable = false, length = 100)
     private String name;
 

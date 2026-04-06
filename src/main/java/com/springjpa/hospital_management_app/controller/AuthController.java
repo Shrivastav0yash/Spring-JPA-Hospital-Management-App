@@ -2,6 +2,7 @@ package com.springjpa.hospital_management_app.controller;
 
 import com.springjpa.hospital_management_app.dto.LoginRequestDTO;
 import com.springjpa.hospital_management_app.dto.LoginResponseDTO;
+import com.springjpa.hospital_management_app.dto.SignupRequestDTO;
 import com.springjpa.hospital_management_app.dto.SignupResponseDTO;
 import com.springjpa.hospital_management_app.security.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<SignupResponseDTO> signup(@RequestBody LoginRequestDTO signupRequestDTO){
+    public ResponseEntity<SignupResponseDTO> signup(@RequestBody SignupRequestDTO signupRequestDTO){
         return new ResponseEntity<>(authService.signup(signupRequestDTO), HttpStatus.OK);
 
     }

@@ -2,10 +2,7 @@ package com.springjpa.hospital_management_app.entity;
 
 import com.springjpa.hospital_management_app.entity.type.BloodGroupType;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -28,6 +25,9 @@ import java.util.List;
                 @Index(name = "idx_patient_birthDate", columnList = "birthDate")
         }
 )
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Patient {
 
     @Id
@@ -44,7 +44,10 @@ public class Patient {
 
     private String gender;
 
-    @Column(nullable = false)
+    @OneToOne
+    @MapsId
+    private User user;
+
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
 
